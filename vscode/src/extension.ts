@@ -63,7 +63,7 @@ function addJumpToRBS(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable);
 }
 
-function executeTypeProf(folder: vscode.WorkspaceFolder, arg: String): child_process.ChildProcessWithoutNullStreams {
+function executeTypeProf(folder: vscode.WorkspaceFolder, arg: string): child_process.ChildProcessWithoutNullStreams {
   const configuration = vscode.workspace.getConfiguration(CONFIGURATION_ROOT_SECTION);
   const customServerPath = configuration.get<string | null>("server.path");
   const cwd = folder.uri.fsPath;
@@ -92,7 +92,8 @@ function executeTypeProf(folder: vscode.WorkspaceFolder, arg: String): child_pro
     typeprof = child_process.spawn(process.env.SYSTEMROOT + "\\System32\\cmd.exe", ["/c", cmd], { cwd });
   }
   else {
-    typeprof = child_process.spawn(cmd, { cwd });
+    const cmds = cmd.split(' ')
+    typeprof = child_process.spawn(cmds[0], cmds.slice(1), { cwd });
   }
 
   return typeprof;
