@@ -1,6 +1,12 @@
 name: Ruby
 
-on: [push,pull_request]
+on:
+  push:
+    paths-ignore:
+      - "vscode/**"
+  pull_request:
+    paths-ignore:
+      - "vscode/**"
 
 jobs:
   build:
