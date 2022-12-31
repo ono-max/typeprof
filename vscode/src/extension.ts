@@ -63,7 +63,7 @@ function addJumpToRBS(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable);
 }
 
-function executeTypeProf(folder: vscode.WorkspaceFolder, arg: String): child_process.ChildProcessWithoutNullStreams {
+function executeTypeProf(folder: vscode.WorkspaceFolder, arg: string): child_process.ChildProcessWithoutNullStreams {
   const configuration = vscode.workspace.getConfiguration(CONFIGURATION_ROOT_SECTION);
   const customServerPath = configuration.get<string | null>("server.path");
   const cwd = folder.uri.fsPath;
