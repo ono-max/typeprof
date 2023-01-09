@@ -8,7 +8,7 @@ import * as vscode from 'vscode';
 const projectRoot = path.join(__dirname, '..', '..', '..', '..');
 const simpleProgramPath = path.join(projectRoot, 'src', 'test', 'simpleProgram');
 
-suite('completion', () => {
+suite('completin', () => {
 	setup(async () => {
 		await vscode.commands.executeCommand('vscode.openFolder', vscode.Uri.file(simpleProgramPath));
 		cp.execSync('bundle install; rbs collection install', { cwd: simpleProgramPath });
